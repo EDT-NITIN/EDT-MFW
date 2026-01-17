@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EDT-NITIN | Web & Game Developer</title>
-
 <style>
 /* ===== RESET ===== */
 *{
@@ -12,7 +12,6 @@
   box-sizing:border-box;
   font-family: 'Segoe UI', sans-serif;
 }
-
 /* ===== THEME COLORS ===== */
 :root{
   --bg:#000000;
@@ -20,40 +19,54 @@
   --text:#ffffff;
   --card:#111111;
 }
-
 /* ===== BODY ===== */
 body{
   background:var(--bg);
   color:var(--text);
   text-align:center;
 }
-
+html{
+  scroll-behavior: smooth;
+}
 /* ===== NAVBAR ===== */
 nav{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:20px 60px;
   position:fixed;
   width:100%;
   top:0;
   background:#000;
   z-index:10;
+  border-bottom:1px solid #222;
 }
-
 nav h2{
   color:var(--red);
 }
-
 nav a{
   color:#fff;
   text-decoration:none;
   margin:0 15px;
+  transition: color 0.3s;
 }
-
 nav a:hover{
   color:var(--red);
 }
-
+/* Mobile navbar */
+@media (max-width: 768px) {
+  nav{
+    flex-direction:column;
+    padding:20px;
+  }
+  nav div{
+    margin-top:15px;
+  }
+  nav a{
+    display:block;
+    margin:10px 0;
+  }
+}
 /* ===== HERO ===== */
 .hero{
   height:100vh;
@@ -63,85 +76,77 @@ nav a:hover{
   align-items:center;
   padding-top:80px;
 }
-
-/* ===== PROFILE IMAGE ===== */
 .hero-img{
   width:220px;
   height:220px;
   border-radius:50%;
   object-fit:cover;
-  /* border: solid red 5px; */
-  /* border:4px solid var(--red); */
-  /* margin-bottom:25px; */
-  /* box-shadow:0 0 25px rgba(255,46,46,0.6); */
+  border:4px solid var(--red);
+  margin-bottom:25px;
+  box-shadow:0 0 25px rgba(255,46,46,0.6);
 }
-
 .hero h1{
   font-size:3rem;
 }
-
 .hero span{
   color:var(--red);
 }
-
 .hero p{
   margin:15px 0;
   opacity:0.8;
 }
-
 .btn{
+  display:inline-block;
   padding:12px 30px;
   background:var(--red);
-  border:none;
   color:#fff;
   font-size:16px;
   border-radius:30px;
-  cursor:pointer;
+  text-decoration:none;
+  transition: opacity 0.3s, transform 0.3s;
 }
-
 .btn:hover{
   opacity:0.8;
+  transform:translateY(-3px);
 }
-
 /* ===== SECTION ===== */
 section{
   padding:80px 60px;
 }
-
 section h2{
   font-size:2rem;
-  margin-bottom:20px;
+  margin-bottom:40px;
+  color:var(--red);
 }
-
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
-
 .card{
   background:var(--card);
   padding:30px;
   border-radius:15px;
   border:1px solid #222;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 30px rgba(255,46,46,0.2);
+}
 .card h3{
   color:var(--red);
   margin-bottom:10px;
 }
-
 /* ===== FOOTER ===== */
 footer{
-  padding:20px;
+  padding:30px;
   background:#000;
   border-top:1px solid #222;
 }
 </style>
 </head>
-
 <body>
-
 <!-- ===== NAVBAR ===== -->
 <nav>
   <h2>EDT-NITIN</h2>
@@ -152,18 +157,13 @@ footer{
     <a href="#contact">Contact</a>
   </div>
 </nav>
-
 <!-- ===== HERO ===== -->
 <div class="hero" id="home">
-
-  <!-- 🔴 ADD YOUR PHOTO HERE -->
   <img src="profile-pic (1).png" alt="Nitin Profile Photo" class="hero-img">
-
   <h1>Hi, I'm <span>Nitin</span></h1>
   <p>Web Developer • Game Developer • Learner</p>
-  <button class="btn">Hire Me</button>
+  <a href="#contact" class="btn">Hire Me</a>
 </div>
-
 <!-- ===== SKILLS ===== -->
 <section id="skills">
   <h2>My Skills</h2>
@@ -178,36 +178,41 @@ footer{
     </div>
     <div class="card">
       <h3>Game Development</h3>
-      <p>Beginner Level</p>
+      <p>Beginner Level (Unity / Godot / Browser Games)</p>
     </div>
   </div>
 </section>
-
 <!-- ===== PROJECTS ===== -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="cards">
+    
+    <!-- Project 1: Level Devil Game (Your Main One) -->
     <div class="card">
-      <h3>Portfolio Website</h3>
-      <p>One page personal website</p>
+      <!-- Optional Screenshot: If you have a gameplay screenshot, save it as "level-devil-screenshot.png" in the same folder. If not, remove or comment out the <img> line below. -->
+      <!-- <img src="level-devil-screenshot.png" alt="Level Devil Gameplay Screenshot" style="width:100%; border-radius:10px; margin-bottom:15px; border:2px solid var(--red);"> -->
+      
+      <h3>Level Devil - Endless Hard Levels</h3>
+      <p><strong>Features:</strong> Auto-unlock levels, menu, retry, smooth controls</p>
+      <p><strong>Tech Stack:</strong> HTML • CSS • JavaScript </p>
+      <div style="margin-top:15px;">
+        <a href="https://edt-nitin.github.io/MFG/" target="_blank" class="btn" style="padding:10px 20px; font-size:14px; margin:5px;">Live Demo</a>
+      </div>
     </div>
-    <div class="card">
-      <h3>Mini Game</h3>
-      <p>Simple browser game</p>
-    </div>
+
+    <!-- Add more projects here later (just copy-paste a card and edit) -->
+    
   </div>
 </section>
-
 <!-- ===== CONTACT ===== -->
 <section id="contact">
-  <h2>Contact : +91-7649030241</h2>
-  <p>Email: namdevnitin673470@gmail.com</p>
+  <h2>Contact Me</h2>
+  <p>Phone: <a href="tel:+917649030241" style="color:var(--red); text-decoration:none;">+91-7649030241</a></p>
+  <p>Email: <a href="mailto:namdevnitin673470@gmail.com" style="color:var(--red); text-decoration:none;">namdevnitin673470@gmail.com</a></p>
 </section>
-
 <!-- ===== FOOTER ===== -->
 <footer>
   <p>© 2026 EDT-NITIN | All Rights Reserved</p>
 </footer>
-
 </body>
 </html>
